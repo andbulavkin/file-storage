@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -72,8 +71,8 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee):JsonResponse
     {
-//        $employee->delete();
+        $employee->delete();
 
-        return $this->respond();
+        return response()->json(['success'=>'The Employee has been deleted'],202);
     }
 }

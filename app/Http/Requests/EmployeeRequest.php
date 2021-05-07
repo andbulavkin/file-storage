@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\Rule;
 
 class EmployeeRequest extends FormRequest
 {
@@ -29,7 +28,7 @@ class EmployeeRequest extends FormRequest
         return [
             'first_name'    =>  'required|string|max:255',
             'last_name'     =>  'required|string|max:255',
-            'email_address' =>  ['required',Rule::unique('employees','email_address')->ignore($this->email_address,'email_address')],
+            'email_address' =>  'required|string|max:255',
             'job_role'     =>   'required'
         ];
     }
